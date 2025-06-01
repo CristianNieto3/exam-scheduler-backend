@@ -9,10 +9,12 @@ import org.springframework.context.annotation.ComponentScan;
 public class BackendApplication {
 
 	public static void main(String[] args) {
-
-
-
+		String port = System.getenv("PORT");
+		if (port != null) {
+			System.getProperties().put("server.port", port);
+		}
 		SpringApplication.run(BackendApplication.class, args);
-	}
 
+
+	}
 }
