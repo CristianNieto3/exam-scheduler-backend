@@ -27,6 +27,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(Customizer.withDefaults()) // 👈 This is the key addition
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/signup").permitAll()
                         .requestMatchers("/api/exams/**").authenticated()
@@ -36,6 +37,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     // provides an authentication manager bean for handling authentication logic
     @Bean
