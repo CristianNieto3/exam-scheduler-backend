@@ -18,7 +18,7 @@ public class WebConfig {
                                 "http://localhost:5173",
                                 "https://exam-scheduler-api-79175fe26d15.herokuapp.com"
                         )
-                        .allowedMethods("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
